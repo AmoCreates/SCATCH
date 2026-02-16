@@ -14,10 +14,10 @@ const indexRouter = require('./routes/indexRouter');
 const app = express();
 const port = 3000;
 
-aapp.set('views', path.join(process.cwd(), 'views'));
+app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(process.cwd(), "public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(
     expressSession({
@@ -33,4 +33,4 @@ app.use('/owner', ownerRouter);
 app.use('/users', usersRouter);
 app.use('/product', productsRouter);
 
-module.exports = app;
+app.listen(port);
