@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="/stylesheets/cart.style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <header>
+        <h1>Cart.</h1>
+        <div class="navContainer">
+            <nav>
+                <a href="/shop">Shop</a>
+                <a href="">Products</a>
+            </nav>
+            <nav>
+                <a href="/cart">Cart</a>
+                <a href="">My account</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <% if (user && user.cart && user.cart.length > 0) { %>
+            <% user.cart.forEach((cartItem) => { %>
+                <section>
+                    <div class="product">
+                        <div class="productImg">
+                            <img src="data:image/png;base64,<%= cartItem.image.toString('base64') %>" alt="">
+                        </div>
+                        <div class="nameXprice bg-[<%= cartItem.bgColor %>]">
+                            <div class="name text-[<%= cartItem.textColor %>]">
+                                <p>Clinge Bag</p>
+                                <div class="addXcancel">
+                                    <div class="add">
+                                        <i class="ri-add-fill"></i>
+                                    </div>
+                                    <div class="quantity">
+                                        1
+                                    </div>
+                                    <div class="cancel">
+                                        <i class="ri-subtract-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="total bg-[<%= cartItem.panelColor %>] text-[<%= cartItem.textColor %>] ">
+                                <p>Cost</p>
+                                <p>&#8377; <%= cartItem.price %></p>
+                            </div>
+                        </div>
+                    </div>
+
+        <div class="details">
+            <div class="breakdown">
+                <h2>Prices Breakdown</h2>
+                
+                <table>
+                    <tr>
+                        <td>Total MRP</td>
+                        <td>&#8377; <%= cartItem.price %></td>
+                    </tr>
+                    <tr>
+                        <td>Discount on MRP</td>
+                        <td>&#8377; <%= cartItem.discount %></td>
+                    </tr>
+                    <tr>
+                        <td>Platform Fee</td>
+                        <td>&#8377; 20</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping Fee</td>
+                        <td>FREE</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="finalAmt">
+                <h2>Total Amount</h2>
+                <h2 id="price">&#8377; <%= cartItem.price - cartItem.discount + 20%></h2>
+            </div>
+            <div class="priceXremove">
+                <a id="remove" href="/remove/<%=cartItem._id %>">
+                    <i class="ri-close-line"></i>
+                    <i class="ri-shopping-cart-2-fill"></i>
+                </a>
+                <button>Place Order</button>
+            </div>
+                
+        </div>
+                </section>
+            <% }) %>
+        <% } else { %>
+            <h3>Your cart is empty</h3>
+        <% } %>
+
+        
+    </main>
+</body>
+</html>
+

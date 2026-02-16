@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/stylesheets/admin.style.css">
+</head>
+<body>
+    <% if(error.length > 0) { %>
+        <% if(error == "Product Created Successfully") { %>
+            <div id="created" class="message">
+                 <%= error %> 
+            </div>
+        <% } else { %>
+            <div id="error" class="message">
+                ⚠️ <%= error %> ⚠️
+            </div>
+        <% } %>
+    <% } %>
+   <header>
+        <h1>Admin Panel.</h1>
+        <div class="navContainer">
+            <nav>
+                <a href="/shop">Home</a>
+                <a href="">Products</a>
+            </nav>
+            <nav>
+                <a href="/cart">Cart</a>
+                <a href="">My account</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="sidebar">
+            <div class="type">
+                <a href="">All Products</a>
+                <a href="">Create New Product</a>
+            </div>
+        </section>
+
+        <section class="create_product">
+            <div class="heading">
+                <h2>Create New Product</h2>
+            </div>
+
+            
+            <form autocomplete="off" action="/product/create" method="post" enctype="multipart/form-data" class="upload">
+                <div class="productImg">
+                    <h2>Product Image</h2>
+                    <label for="file-upload" class="custom-file-upload">
+                        Select File
+                    </label>
+                    <input id="file-upload" type="file" name="image" class="file-upload"/>
+                </div> 
+
+                <input type="text" id="productName" placeholder="Product Name" name="productname">
+                <div class="priceInput">
+                    <input type="number" placeholder="Product Price" name="price">
+                    <input type="number" placeholder="Discount Price" name="discount">
+                </div>
+                
+               
+                <div class="colorPicker" style="margin-top: 50px;">
+                    <label for="favcolor"><h2>Choose Colors</h2></label>
+                    <div class="container">
+                        <input class="special" type="color" id="favcolor" name="favcolor" value="#f6c8e5">
+                        <p style="color:gray; font-weight: 600;">*Only pick hash code of color using color box and paste it in Panel Details or you can simply type the color name (lowercase) in Panel Details</p>
+                    </div>
+                </div>
+
+                
+                <div class="colorDetails">
+                    <h2 style="margin-top: 50px; margin-bottom: 20px;">Panel Details</h2>
+                    <div class="types">
+                        <input type="text" placeholder="Background Color" value="blanchedalmond" name="bgColor">
+                        <input type="text" placeholder="Panel Color" value="#292427" name="panelColor">
+                        <input type="text" placeholder="Text Color" value="gray" name="textColor">
+                    </div>
+                </div>
+
+                <button>Create New Product</button>
+            </form>
+
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Select all elements with the class 'message'
+            const messages = document.querySelectorAll(".message");
+            
+            messages.forEach(msg => {
+                setTimeout(() => {
+                    msg.style.transition = "opacity 0.5s ease";
+                    msg.style.opacity = "0";
+                    
+                    setTimeout(() => {
+                        msg.style.display = "none";
+                    }, 500);
+                    }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>

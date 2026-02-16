@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop</title>
+    <link rel="stylesheet" href="/stylesheets/shop.style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+    <% if(success.length > 0) { %>
+        <div id="added" class="message">
+             <%= success %> 
+        </div>
+    <% } %>
+    <header>
+        <h1>Shop.</h1>
+        <div class="navContainer">
+            <nav>
+                <a href="/shop">Shop</a>
+                <a href="">Products</a>
+            </nav>
+            <nav>
+                <a href="/cart">Cart</a>
+                <a href="">My account</a>
+                <a style="color:red" href="/users/logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="sidebar">
+            <div class="sort">
+                <h3>sort by:</h3>
+                <select>
+                    <option value="Popular">Popular</option>
+                    <option value="Gents">Gents</option>
+                    <option value="Ladies">Ladies</option>
+                    <option value="Trip">Trip</option>
+                    <option value="Office">Office</option>
+                </select>
+            </div>
+
+            <div class="type">
+                <a href="">New Collection</a>
+                <a href="">All Products</a>
+                <a href="">Discounted Products</a>
+            </div>
+
+            <div class="filter">
+                <h4>Filter by:</h4>
+                <a href="">Availability</a>
+                <a href="">Discount</a>
+            </div>
+        </section>
+
+        <section class="products">
+            <% products.forEach((product) => { %>
+                <div class="product">
+                    <div class="productImg">
+                        <img src="data:image/png;base64,<%= product.image.toString('base64') %>" alt="">
+                    </div>
+                    <div class="nameXprice bg-[<%= product.panelColor %>]">
+                        <div class="box">
+                            <p class="text-[<%= product.textColor %>]"><%= product.productname%></p>
+                            <p class="text-[<%= product.textColor %>]">&#8377;<%= product.price%></p>
+                        </div>
+                        <div class="add">
+                            <a href="/addtocart/<%= product._id  %>">
+                                <i class="ri-add-large-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+                
+            
+        </section>
+    </main>
+
+
+    <script>
+    // Wait for the DOM to load
+    document.addEventListener("DOMContentLoaded", function() {
+        const errorDiv = document.getElementById("added");
+        
+        // If the error div exists, wait 3 seconds then hide it
+        if (errorDiv) {
+            setTimeout(() => {
+                // Using opacity for a smoother fade-out effect
+                errorDiv.style.transition = "opacity 0.5s ease";
+                errorDiv.style.opacity = "0";
+                
+                // Completely remove it from the layout after the fade
+                setTimeout(() => {
+                    errorDiv.style.display = "none";
+                }, 500); 
+            }, 3000); // 3000ms = 3 seconds
+        }
+    });
+</script>
+</body>
+</html>

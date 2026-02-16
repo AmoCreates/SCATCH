@@ -1,0 +1,141 @@
+:root {
+    --variable-name: value;
+    --button-color:#0087ff;
+    --button-padding: 10px 20px;
+    --input-box-size: 22vw;
+}
+
+* {
+    margin: 0px;
+    font-family: sans-serif;
+    padding: 0px;
+    box-sizing: border-box;
+    border: none;
+}
+
+html,
+body {
+    display: flex;
+    overflow: hidden;
+}
+
+#created {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: green;
+    color:white;
+    border-radius: 5px;
+}
+
+#error {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 0, 0, 0.884);
+    color:white;
+    border-radius: 5px;
+    animation: vibrate 0.5s linear 1s infinite;
+}
+
+@keyframes vibrate {
+    0%, 100% { transform: translateX(-50%); }
+    20% { transform: translateX(calc(-50% - 5px)); }
+    40% { transform: translateX(calc(-50% + 5px)); }
+    60% { transform: translateX(calc(-50% - 5px)); }
+    80% { transform: translateX(calc(-50% + 5px)); }
+}
+
+#logo {
+    position: absolute;
+    top: 7%;
+    left: 4vw;
+}
+
+.text {
+    line-height: 35px;
+    margin-bottom: 20px;
+    width: var(--input-box-size);
+}
+
+.createAccount {
+    background-color: #e0e6ec;
+    margin-left: 7vw;
+    height: 100vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.createAccount span {
+    color:#0970e7;
+    text-shadow: 1px 1px 2px #66ade4;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    width: var(--input-box-size);
+}
+
+input {
+    padding: 12px 15px;
+    width: 100%;
+}
+
+button {
+    background-color: var(--button-color);
+    color:white;
+    padding: var(--button-padding);
+    border-radius: 9999px;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.loginAccount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 63vw;
+}
+
+.loginAccount h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    align-self: flex-start;
+}
+
+.loginAccount input {
+    background-color: #eaeaea;
+}
+
+.or {
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    background-color: #0087ff;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}

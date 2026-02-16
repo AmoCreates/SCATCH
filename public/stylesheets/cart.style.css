@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    font-family: sans-serif;
+}
+
+header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px 20px 40px;
+    border-bottom: 3px solid gray;
+}
+
+header h1 {
+    font-size: 38px;
+    font-weight: 300;
+}
+
+.navContainer {
+    display: flex;
+    gap: 70px;
+}
+
+nav {
+    display: flex;
+    gap:20px;
+}
+
+nav a {
+    text-decoration: none;
+    color:black;
+    font-weight: 600;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 100px 20px 40px;
+    gap: 25px;
+}
+
+section {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 50px;
+    padding: 10px;
+    transition: all;
+    background-color: white;
+    border-radius: 12px;
+}
+
+section:hover {
+    background-color: rgba(156, 155, 155, 0.159);
+}
+
+.product {
+    height: 40vh;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+    overflow: hidden;
+}
+
+.productImg {
+    height: 77%;
+}
+
+.productImg img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: normal;
+}
+
+.nameXprice {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 22px;
+    padding: 4%;
+    padding-right: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    display: flex;
+    padding: 3% 5%;
+    padding-right: 10%;
+    justify-content: space-between;
+}
+
+.addXcancel {
+    display: flex;
+    gap: 5px;
+}
+
+.quantity {
+    background-color: white;
+    height: 25px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 15%;
+}
+
+.add, .cancel{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+.details {
+    flex-grow: 1;
+}
+
+.breakdown {
+    border-bottom: 2px solid gray;
+}
+
+.breakdown h2{
+    font-size: 22px;
+    font-weight: 400;
+}
+
+table {
+    margin:25px 0px;
+}
+
+td {
+    padding: 7px 15px;
+    width: 220px;
+    font-size: 18px;
+}
+
+.finalAmt h2 {
+    font-size: 22px;
+    font-weight: 400;
+    width: 240px;
+}
+
+.finalAmt {
+    margin: 20px 0px 25px 0px;
+    display: flex;
+}
+
+#price {
+    color: #25c49f;
+    text-shadow: 1px 1px #14dfaf;
+}
+
+button, .priceXremove a{
+    padding: 10px 15px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.priceXremove {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
